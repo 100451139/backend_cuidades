@@ -19,7 +19,6 @@ def obtener_info(mensaje, model, tokenizer):
     json_data = {
         "id": str(uuid.uuid4()),
         "titulo": titulo,
-        "clasificacion": clasificacion,
         "horario": horario,
         "fecha": fecha,
         "descripcion": descripcion,
