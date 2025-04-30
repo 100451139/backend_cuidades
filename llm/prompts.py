@@ -38,7 +38,7 @@ Si hay un rango, usa el formato dd/mm/yyyy-dd/mm/yyyy.
 
 Devuelve una lista como: ["25/05/2025"], ["25/05/2025-28/05/2025"], ["25/05/2025", "30/05/2025"]
 
-Si no hay ninguna fecha clara, devuelve exactamente: []
+Si no hay ninguna fecha clara, devuelve exactamente: **"Fechas no especificadas"**
 
 Mensaje:
 {mensaje}
@@ -72,4 +72,22 @@ Mensaje:
 {mensaje}
 
 Localización:
+"""
+
+EXTRAER_TEMATICA_PROMPT = """Analiza el siguiente mensaje y selecciona la temática más adecuada entre las siguientes opciones:
+
+- Cultura y ocio
+- Infraestructura y obras públicas
+- Servicios y administración local
+- Politica
+- Deporte 
+- Salud
+- Educación
+
+Mensaje:
+{mensaje}
+
+Devuelve únicamente una de las opciones anteriores, sin añadir explicación ni repetir el mensaje.
+
+Temática:
 """

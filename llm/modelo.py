@@ -5,6 +5,17 @@ from dotenv import load_dotenv
 import os
 
 def cargar_modelo():
+    """
+    Carga un modelo de lenguaje preentrenado desde Hugging Face y configura un generador de texto.
+    Esta función realiza las siguientes tareas:
+    1. Carga las variables de entorno desde un archivo .env.
+    2. Obtiene el token de autenticación de Hugging Face desde las variables de entorno.
+    3. Inicia sesión en Hugging Face utilizando el token proporcionado.
+    4. Carga el tokenizador y el modelo preentrenado especificado.
+    5. Configura un pipeline de generación de texto con parámetros predefinidos.
+    Returns:
+        tuple: Una tupla que contiene el modelo y el tokenizador cargados.
+    """
     modelo = "meta-llama/Llama-3.2-3B-Instruct"
 
     load_dotenv()
