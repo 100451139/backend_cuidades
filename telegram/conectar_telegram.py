@@ -6,6 +6,7 @@ import sqlite3
 from threading import Thread
 from llm.obtener_info import obtener_info
 from functools import partial
+from telegram.storage import guardar_mensaje
 
 # Configuración de SQLite con modo WAL
 with sqlite3.connect('ayto_session_thread.session') as conn:
@@ -17,7 +18,6 @@ load_dotenv()
 
 mensajes = []
 mensajes_procesados = [
-    # Ejemplo de mensajes procesados
     {
         "id": "123e4567-e89b-12d3-a456-426614174000",
         "titulo": "La Noche de los Libros en Valdemorillo",
@@ -76,7 +76,8 @@ def procesar_mensaje(mensaje, model, tokenizer):
     global global_model, global_tokenizer
     info = obtener_info(mensaje, model, tokenizer)
     mensajes_procesados.append(info)
-    print(f"Información procesada: {info}")
+    guardar_mensaje(info) 
+    print(f"Información procesada y guardada: {info}")
 
 # Obtiene el siguiente anuncio procesado
 def obtener_info_anuncio():
