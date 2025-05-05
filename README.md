@@ -1,4 +1,4 @@
-# Interfaz Cuidades
+# Backend cuidades
 
 Este proyecto es una interfaz para gestionar y visualizar anuncios y eventos procesados desde un backend. Utiliza React en el frontend y Flask en el backend.
 
