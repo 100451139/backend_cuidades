@@ -9,8 +9,8 @@ Título:
 CLASIFICAR_MENSAJE_PROMPT = """
 Clasifica el siguiente mensaje en una de dos categorías:
 
-- "Evento" si contiene fecha, hora o lugar para una actividad específica a la que puedan asistir los ciudadanos.
-- "Anuncio" si solo comunica información general y no es un evento.
+- "Evento" si contiene fecha, hora o lugar para una actividad específica a la que puedan asistir los ciudadanos. El mensaje debe ser en futuro o hablar de una fecha posterior, si no no es un evento.
+- "Anuncio" si solo comunica información general y no es un evento. Si el mensaje está escrito en pasado clasificalo como "Anuncio".
 
 Devuelve **solo** la palabra "Evento" o "Anuncio", **sin repetir ni añadir texto adicional**.
 
@@ -36,7 +36,7 @@ FECHA_PROMPT = """Extrae las fechas del siguiente mensaje. Usa formato dd/mm/yyy
 
 Si hay un rango, usa el formato dd/mm/yyyy-dd/mm/yyyy.
 
-Devuelve una lista como: ["25/05/2025"], ["25/05/2025-28/05/2025"], ["25/05/2025", "30/05/2025"]
+Devuelve unícamente las fechas del mensaje.
 
 Si no hay ninguna fecha clara, devuelve exactamente: **"Fechas no especificadas"**
 
@@ -66,7 +66,7 @@ La localización puede ser una plaza, calle, centro cultural, edificio o cualqui
 
 Si se mencionan varios lugares, devuelve el más relevante o donde se desarrolla la actividad principal.
 
-Si no se menciona ningún lugar, devuelve exactamente: "Localización no especificada".
+Si no se menciona ningún lugar o el lugar no queda claro, devuelve exactamente: "Localización no especificada".
 
 Mensaje:
 {mensaje}

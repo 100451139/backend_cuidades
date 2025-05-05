@@ -1,10 +1,13 @@
+import torch
+
 def consultar_llm(model, tokenizer, prompt_base, mensaje, tokens = 20):
     print(" Consultando LLM...")
     prompt = prompt_base.format(mensaje=mensaje)
 
     # Tokeniza el prompt y lo convierte en tensores
-    inputs = tokenizer(prompt, return_tensors="pt")
-    inputs = inputs.to(model.device)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
+    inputs = tokenizer(prompt, return_tensors="pt").to(device)
 
     # Genera una respuesta utilizando el modelo
     outputs = model.generate(

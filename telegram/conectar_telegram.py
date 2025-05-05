@@ -20,22 +20,35 @@ mensajes_procesados = [
     # Ejemplo de mensajes procesados
     {
         "id": "123e4567-e89b-12d3-a456-426614174000",
-        "titulo": "Mercado de Antigüedades",
+        "titulo": "La Noche de los Libros en Valdemorillo",
         "clasificacion": "Evento",
         "tipo": "Evento",
-        "horario": "10:00 - 14:00",
-        "fecha": ["2025-05-25", "2025-06-29"],
-        "descripcion": "Un mercado para disfrutar de antigüedades y objetos únicos en la Plaza Mayor."
+        "horario": "17:30 - 20:00",
+        "fecha": ["2025-04-25"],
+        "descripcion": "Valdemorillo celebra la vigésima edición de La Noche de los Libros con un pasacalles teatral 'Historias al oído' del grupo COVAL y el espectáculo de magia literaria 'La magia de la lectura' con Lorenz de Parla en la Biblioteca Municipal.",
+        "localizacion": "Recorrido desde el Edificio Municipal María Giralt hasta la Plaza de la Constitución.",
+        "tematica": "Cultura y ocio"
     },
     {
         "id": "987f6543-e21a-34c5-b678-123456789abc",
         "titulo": "Concierto de Verano",
-        "clasificacion": "Anuncio",
-        "tipo": "Anuncio",
+        "clasificacion": "Evento",
+        "tipo": "Evento",
         "horario": "19:00 - 22:00",
         "fecha": ["2025-07-15"],
-        "descripcion": "Concierto al aire libre con artistas locales en el Parque Central."
+        "descripcion": "Concierto al aire libre con artistas locales en el patio de La Casa de la Cultura.",
+        "localizacion": "La Casa de la Cultura."
+    },
+    {
+        "id": "987f6543-e21a-34c5-b678-123456789abd",
+        "titulo": "La Casa de Cultura, Bien de interés Patrimonial",
+        "clasificacion": "Anuncio",
+        "tipo": "Anuncio",
+        "horario": "Horario no especificado",
+        "fecha": "Fecha no especificada",
+        "descripcion": "El alcalde de Valdemorillo, Santiago Villena, junto con la concejal de Cultura y Turismo, Victoria Gil, han asistido al plenario de la declaración en Bien de Interés Patrimonial de la Casa de la Cultura."
     }
+
 ]
 
 # Carga de credenciales desde .env

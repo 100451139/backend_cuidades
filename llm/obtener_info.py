@@ -47,7 +47,7 @@ def clasificar_mensaje(mensaje, model, tokenizer):
     return respuesta
 
 def obtener_horario(mensaje, model, tokenizer):
-    raw = consultar_llm(model, tokenizer, HORARIO_PROMPT, mensaje, tokens=5)
+    raw = consultar_llm(model, tokenizer, HORARIO_PROMPT, mensaje, tokens=10)
     if "Horario no especificado" in raw or "No hay horario claro" in raw:
         return None
     return raw.split("\n")[0].strip()
@@ -55,15 +55,15 @@ def obtener_horario(mensaje, model, tokenizer):
 def obtener_fecha(mensaje, model, tokenizer):
     if "Fechas no especificadas" in mensaje:
         return None
-    return consultar_llm(model, tokenizer, FECHA_PROMPT, mensaje, tokens=10)
+    return consultar_llm(model, tokenizer, FECHA_PROMPT, mensaje, tokens=27)
 
 def extraer_descripcion(mensaje, model, tokenizer):
-    return consultar_llm(model, tokenizer, EXTRAER_DESCRIPCION_PROMPT, mensaje, tokens=50)
+    return consultar_llm(model, tokenizer, EXTRAER_DESCRIPCION_PROMPT, mensaje, tokens=70)
 
 def obtener_localizacion(mensaje, model, tokenizer):
     if "Localización no especificada" in mensaje:
         return None
-    return consultar_llm(model, tokenizer, EXTRAER_LOCALIZACION_PROMPT, mensaje, tokens=10)
+    return consultar_llm(model, tokenizer, EXTRAER_LOCALIZACION_PROMPT, mensaje, tokens=20)
 
 def obtener_tematica(mensaje, model, tokenizer):
     return consultar_llm(model, tokenizer, EXTRAER_TEMATICA_PROMPT, mensaje, tokens=5)
