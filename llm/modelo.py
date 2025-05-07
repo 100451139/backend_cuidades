@@ -27,9 +27,10 @@ def cargar_modelo():
     model = AutoModelForCausalLM.from_pretrained(
         modelo,
         torch_dtype=torch.float16,
-        device_map="auto",
         token=token_huggingface,
     )
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = model.to(device)
 
     generator = pipeline(
         "text-generation",
